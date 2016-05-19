@@ -1,0 +1,40 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>QTee, Q for quality!</title>
+    <link rel="stylesheet" href="Styles/StyleSheet.css" type="text/css" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div id="wrapper">
+                <div id="banner">
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/Banner.png" Width="100%" />
+                </div>
+                <div id="navigation">
+                    <ul id="nav">
+                        <li>
+                            <asp:HyperLink ID="HyperLink1" runat="server">Webshop</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Pages/ContactUs.aspx">About us</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink3" runat="server">Reports</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink4" runat="server">Management</asp:HyperLink></li>
+                    </ul>
+                </div>
+                <div id="content">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
