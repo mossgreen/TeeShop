@@ -8,10 +8,63 @@ using System.Web;
 /// </summary>
 public class CartModel
 {
-    public CartModel()
+    public string InsertCart(Cart cart)
     {
-        //
-        // TODO: Add constructor logic here
-        //
+        try
+        {
+            TeeShopEntities db = new TeeShopEntities();
+            db.Carts.Add(cart);
+            db.SaveChanges();
+
+            return cart.DatePurchased + " was succesfully inserted";
+        }
+        catch (Exception e)
+        {
+            return "Error:" + e;
+        }
+    }
+
+    public string UpdateCart(int id, Cart cart)
+    {
+        try
+        {
+            TeeShopEntities db = new TeeShopEntities();
+
+            //Fetch object from db
+            Cart p = db.Carts.Find(id);
+
+            p.DatePurchased = cart.DatePurchased;
+            p.ClientID = cart.ClientID;
+            p.Amount = cart.Amount;
+            p.IsInCart = cart.IsInCart;
+            p.ProductID = cart.ProductID;
+
+            db.SaveChanges();
+            return cart.DatePurchased + " was succesfully updated";
+
+        }
+        catch (Exception e)
+        {
+            return "Error:" + e;
+        }
+    }
+
+    public string DeleteCart(int id)
+    {
+        try
+        {
+            TeeShopEntities db = new TeeShopEntities();
+            Cart cart = db.Carts.Find(id);
+
+            db.Carts.Attach(cart);
+            db.Carts.Remove(cart);
+            db.SaveChanges();
+
+            return cart.DatePurchased + "was succesfully deleted";
+        }
+        catch (Exception e)
+        {
+            return "Error:" + e;
+        }
     }
 }
