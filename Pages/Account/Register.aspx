@@ -7,7 +7,7 @@
     <h4>Register a new user</h4>
     <hr />
     <p>
-        <asp:Literal runat="server" ID="litStatusMessage" />
+        <asp:Literal runat="server" ID="litStatus" />
     </p>
 
     User name:<br />
