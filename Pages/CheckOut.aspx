@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="CheckOut.aspx.cs" Inherits="Pages_CheckOut" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="CheckOut.aspx.cs"  Inherits ="Pages_CheckOut" %>
+<%@ Reference Page="~/Pages/ShoppingCart.aspx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 

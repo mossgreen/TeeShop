@@ -8,14 +8,18 @@ using Microsoft.AspNet.Identity;
 
 public partial class Pages_ShoppingCart : System.Web.UI.Page
 {
-    
+
+    public string totalAmount
+    {
+        get { return litTotalAmount.Text; }
+    }
 
     protected void Page_Load(object sender, EventArgs e)
     {
         //get id of current logged in user and display items in Cart
         string userId = User.Identity.GetUserId();
         GetPurchasesInCart(userId);
-       // Session["totalAmount"] = litTotalAmount.ToString();
+        
     }
 
 
@@ -210,6 +214,7 @@ public partial class Pages_ShoppingCart : System.Web.UI.Page
             {
                 cart.IsInCart = Convert.ToBoolean(0);
             }
+            Server.Transfer("CheckOut.aspx", true);
 
             Response.Redirect("~/Pages/CheckOut.aspx");
 

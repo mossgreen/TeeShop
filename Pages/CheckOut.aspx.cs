@@ -10,13 +10,14 @@ public partial class Pages_CheckOut : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        FillPage();
+        //firstly, use server transfer to get totalamout from shoppingCart page
+        //create instance of source web form
+        Pages_ShoppingCart thisPage;
+        //get reference to current handler instance
+        thisPage = (Pages_ShoppingCart)Context.Handler;
+        string totalAmount = thisPage.totalAmount;
 
-    }
-
-    private void FillPage()
-    {
-        //get id of current logged in user and display items in Cart
+        //than,  get id of current logged in user and display items in Cart
         string userId = User.Identity.GetUserId();
 
         //generate a new order and store it in database
@@ -25,7 +26,7 @@ public partial class Pages_CheckOut : System.Web.UI.Page
             ClientId = userId,
             OrderDate = (DateTime.Now).ToString(),
             Status = "pendding",
-            //TotalAmount = Session["totalAmount"].ToString(),
+            TotalAmount = totalAmount,
         };
 
         OrderModel orderModel = new OrderModel();
@@ -34,12 +35,19 @@ public partial class Pages_CheckOut : System.Web.UI.Page
         ClientModel clientModel = new ClientModel();
         Client client = clientModel.GetClient(userId);
 
+        if (client != null)
+        {
+            lblClientName.Text = client.UserName.ToString();
+            lblOrderId.Text = orderId.ToString();
+            lblDate.Text = order.OrderDate.ToString();
+            lblStatus.Text = order.Status;
+            lblAmount.Text = order.TotalAmount.ToString();
+        }
+        else
+        {
 
-        lblClientName.Text = client.UserName;
-        lblOrderId.Text = orderId.ToString();
-        lblDate.Text = order.OrderDate.ToString();
-        lblStatus.Text = order.Status;
-        lblAmount.Text = order.TotalAmount.ToString();
+        }
+
 
     }
 
