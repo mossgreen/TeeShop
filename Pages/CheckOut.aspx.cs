@@ -25,7 +25,7 @@ public partial class Pages_CheckOut : System.Web.UI.Page
             ClientId = userId,
             OrderDate = (DateTime.Now).ToString(),
             Status = "pendding",
-            TotalAmount = Application["totalAmount"].ToString(),
+            //TotalAmount = Session["totalAmount"].ToString(),
         };
 
         OrderModel orderModel = new OrderModel();
@@ -40,6 +40,7 @@ public partial class Pages_CheckOut : System.Web.UI.Page
         lblDate.Text = order.OrderDate.ToString();
         lblStatus.Text = order.Status;
         lblAmount.Text = order.TotalAmount.ToString();
+
     }
 
 

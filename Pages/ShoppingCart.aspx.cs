@@ -15,7 +15,7 @@ public partial class Pages_ShoppingCart : System.Web.UI.Page
         //get id of current logged in user and display items in Cart
         string userId = User.Identity.GetUserId();
         GetPurchasesInCart(userId);
-        Application["totalAmount"] =  litTotalAmount.ToString();
+       // Session["totalAmount"] = litTotalAmount.ToString();
     }
 
 
