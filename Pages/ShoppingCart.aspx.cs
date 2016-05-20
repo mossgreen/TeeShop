@@ -24,7 +24,14 @@ public partial class Pages_ShoppingCart : System.Web.UI.Page
         double shippingFee = 0;
         List<Cart> purchaseList = cartModel.GetOrdersInCart(userId);
 
-        CreateShopTable(purchaseList, out subTotal);
+
+        foreach(Cart c in purchaseList)
+        {
+            if(c.IsInCart != false)
+            {
+                CreateShopTable(purchaseList, out subTotal);
+            }
+        }
 
         //add totals to webpage, with tax
         double GST = subTotal * 0.15;

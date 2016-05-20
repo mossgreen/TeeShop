@@ -45,6 +45,19 @@
                 <asp:Literal ID="litTotalAmount" Text="" runat="server"></asp:Literal>
             </td>
         </tr>
+
+                <tr>
+            <td>
+                <asp:Button ID="btnClear" runat="server" CssClass="button-clear" Width="250px" Text="Empty My Cart" Color="" OnClick="btnClear_Click" />
+
+            </td>
+            <td>
+                <asp:Label ID="lblResult" runat="server" class="productPrice" Font-Bold="True" Font-Size="X-Large"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <br />
+        </tr>
         <tr>
             <td class="auto-style2">
                 <asp:LinkButton ID="lnkContinue" runat="server" PostBackUrl="~/index.aspx" Text="Continue Shopping"></asp:LinkButton>
@@ -56,15 +69,7 @@
             </td>
 
         </tr>
-        <tr><p></p></tr>
-        <tr>
-            <td>
-                <asp:Button ID="btnClear" runat="server" CssClass="button-clear" Width="250px" Text="Empty My Cart" Color="" OnClick="btnClear_Click" />
+        
 
-            </td>
-            <td>
-                <asp:Label ID="lblResult" runat="server" class="productPrice" Font-Bold="True" Font-Size="X-Large"></asp:Label>
-            </td>
-        </tr>
     </table>
 </asp:Content>
