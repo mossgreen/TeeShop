@@ -11,11 +11,16 @@ public partial class Pages_CheckOut : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //firstly, use server transfer to get totalamout from shoppingCart page
-        //create instance of source web form
-        Pages_ShoppingCart thisPage;
-        //get reference to current handler instance
-        thisPage = (Pages_ShoppingCart)Context.Handler;
-        string totalAmount = thisPage.totalAmount;
+        ////create instance of source web form
+        //Pages_ShoppingCart thisPage;
+        ////get reference to current handler instance
+        //thisPage = (Pages_ShoppingCart)Context.Handler;
+        //string totalAmount = thisPage.totalAmount;
+
+        string totalAmount = "";
+        Application.Lock();
+        totalAmount = Application["totalAmount"].ToString();
+        Application.UnLock();
 
         //than,  get id of current logged in user and display items in Cart
         string userId = User.Identity.GetUserId();

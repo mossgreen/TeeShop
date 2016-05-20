@@ -214,6 +214,9 @@ public partial class Pages_ShoppingCart : System.Web.UI.Page
             {
                 cart.IsInCart = Convert.ToBoolean(0);
             }
+
+            Application["totalAmount"] = litTotalAmount.Text;
+           
             Server.Transfer("CheckOut.aspx", true);
 
             Response.Redirect("~/Pages/CheckOut.aspx");
