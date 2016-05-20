@@ -67,4 +67,58 @@ public class CartModel
             return "Error:" + e;
         }
     }
+
+    public List<Cart> GetOrdersInCart(string clientId)
+    {
+        TeeShopEntities db = new TeeShopEntities();
+        List<Cart> orders = (from x in db.Carts
+                             where x.ClientID == clientId
+                             && x.IsInCart
+                             orderby x.DatePurchased descending
+                             select x).ToList();
+        return orders;
+    }
+
+    public int GetAmountOfOrders(string clientId)
+    {
+        try
+        {
+            TeeShopEntities db = new TeeShopEntities();
+            int amount = (from x in db.Carts
+                          where x.ClientID == clientId
+                          && x.IsInCart
+                          select x.Amount).Sum();
+
+            return amount;
+        }
+        catch
+        {
+            return 0;
+        }
+    }
+
+    public void UpdateQuantity(int id, int quantity)
+    {
+        TeeShopEntities db = new TeeShopEntities();
+        Cart p = db.Carts.Find(id);
+        p.Amount = quantity;
+
+        db.SaveChanges();
+    }
+
+    public void MarkOrdersAsPaid(List<Cart> carts)
+    {
+        TeeShopEntities db = new TeeShopEntities();
+
+        if (carts != null)
+        {
+            foreach (Cart cart in carts)
+            {
+                Cart oldCart = db.Carts.Find(cart.ID);
+                oldCart.DatePurchased = DateTime.Now;
+                oldCart.IsInCart = false;
+            }
+            db.SaveChanges();
+        }
+    }
 }

@@ -16,9 +16,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
             litStatus.Visible = true;
             btnLogout.Visible = true;
 
-            //CartModel model = new CartModel();
-            //string userId = HttpContext.Current.User.Identity.GetUserId();
-            //lnkStatus.Text = string.Format("{0} ({1})", Context.User.Identity.Name, model.GetAmountOfOrders(userId));
+            CartModel model = new CartModel();
+            string userId = HttpContext.Current.User.Identity.GetUserId();
+            litStatus.Text = string.Format("{0} ({1})", Context.User.Identity.Name, model.GetAmountOfOrders(userId));
         }
         else
         {
