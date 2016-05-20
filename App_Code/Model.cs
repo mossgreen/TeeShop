@@ -34,6 +34,15 @@ public partial class Client
     public string Address { get; set; }
 }
 
+public partial class Order
+{
+    public int ID { get; set; }
+    public string ClientId { get; set; }
+    public string OrderDate { get; set; }
+    public string Status { get; set; }
+    public string TotalAmount { get; set; }
+}
+
 public partial class Product
 {
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

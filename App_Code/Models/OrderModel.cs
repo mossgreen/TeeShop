@@ -35,7 +35,7 @@ public class OrderModel
 
             o.ClientId = order.ClientId;
             o.Status = order.Status;
-            o.Total = order.Total;
+            o.TotalAmount = order.TotalAmount;
             o.OrderDate = order.OrderDate;
 
             db.SaveChanges();

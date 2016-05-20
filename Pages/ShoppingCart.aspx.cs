@@ -192,31 +192,20 @@ public partial class Pages_ShoppingCart : System.Web.UI.Page
         string clientId = Context.User.Identity.GetUserId();
         if (clientId != null)
         {
-            try
+            Order order = new Order
             {
-                int clientID = Convert.ToInt32(clientId);
 
-                Order order = new Order
-                {
-
-                    ClientId = clientID,
-                    OrderDate = DateTime.Now,
-                    Status = "pendding",
-                    Total = 12,
-                };
+                ClientId = clientId,
+                OrderDate = (DateTime.Now).ToString(),
+                Status = "pendding",
+                TotalAmount = litTotalAmount.Text,
+            };
 
 
-                OrderModel cartModel = new OrderModel();
-                lblResult.Text = cartModel.InsertOrder(order);
+            OrderModel cartModel = new OrderModel();
+            lblResult.Text = cartModel.InsertOrder(order);
 
-                Response.Redirect("~/Pages/CheckOut.aspx");
-
-            }
-            catch (Exception ex)
-            {
-                lblResult.Text = ex.ToString();
-            }
-
+            Response.Redirect("~/Pages/CheckOut.aspx");
 
         }
         else
