@@ -47,6 +47,25 @@ public class OrderModel
         }
     }
 
+    public string ChangeOrderStatus(int id, Boolean boolean)
+    {
+        try
+        {
+            TeeShopEntities db = new TeeShopEntities();
+
+            //Fetch object from db
+            Order o = db.Orders.Find(id);
+            o.Status = boolean.ToString();
+
+            db.SaveChanges();
+            return o.ID + " was successfully updated!";
+        }
+        catch (Exception e)
+        {
+            return "Error:" + e;
+        }
+    }
+
     public Order GetOrder(string clientId)
     {
         try

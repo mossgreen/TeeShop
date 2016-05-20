@@ -8,11 +8,14 @@ using Microsoft.AspNet.Identity;
 
 public partial class Pages_ShoppingCart : System.Web.UI.Page
 {
+    
+
     protected void Page_Load(object sender, EventArgs e)
     {
         //get id of current logged in user and display items in Cart
         string userId = User.Identity.GetUserId();
         GetPurchasesInCart(userId);
+        Application["totalAmount"] =  litTotalAmount.ToString();
     }
 
 
@@ -207,18 +210,6 @@ public partial class Pages_ShoppingCart : System.Web.UI.Page
             {
                 cart.IsInCart = Convert.ToBoolean(0);
             }
-
-            //generate a new order and store it in database
-            Order order = new Order
-            {
-                ClientId = clientId,
-                OrderDate = (DateTime.Now).ToString(),
-                Status = "pendding",
-                TotalAmount = litTotalAmount.Text,
-            };
-
-            OrderModel orderModel = new OrderModel();
-            lblResult.Text = orderModel.InsertOrder(order);
 
             Response.Redirect("~/Pages/CheckOut.aspx");
 

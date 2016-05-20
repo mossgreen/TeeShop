@@ -82,5 +82,46 @@
     </UpdateParameters>
 </asp:SqlDataSource>
 
+    <br />
+    <br />
+    <asp:GridView ID="grdOrders" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="ID" DataSourceID="sdsOrders" ForeColor="Black" GridLines="Vertical" OnRowEditing="GridView1_RowEditing">
+        <AlternatingRowStyle BackColor="White" />
+        <Columns>
+            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+            <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+            <asp:BoundField DataField="ClientId" HeaderText="ClientId" SortExpression="ClientId" />
+            <asp:BoundField DataField="OrderDate" HeaderText="OrderDate" SortExpression="OrderDate" />
+            <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+            <asp:BoundField DataField="TotalAmount" HeaderText="TotalAmount" SortExpression="TotalAmount" />
+        </Columns>
+        <FooterStyle BackColor="#CCCC99" />
+        <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
+        <RowStyle BackColor="#F7F7DE" />
+        <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+        <SortedAscendingCellStyle BackColor="#FBFBF2" />
+        <SortedAscendingHeaderStyle BackColor="#848384" />
+        <SortedDescendingCellStyle BackColor="#EAEAD3" />
+        <SortedDescendingHeaderStyle BackColor="#575357" />
+    </asp:GridView>
+    <asp:SqlDataSource ID="sdsOrders" runat="server" ConnectionString="<%$ ConnectionStrings:TeeShopConnectionString %>" DeleteCommand="DELETE FROM [Order] WHERE [ID] = @ID" InsertCommand="INSERT INTO [Order] ([ClientId], [OrderDate], [Status], [TotalAmount]) VALUES (@ClientId, @OrderDate, @Status, @TotalAmount)" SelectCommand="SELECT * FROM [Order] ORDER BY [ID]" UpdateCommand="UPDATE [Order] SET [ClientId] = @ClientId, [OrderDate] = @OrderDate, [Status] = @Status, [TotalAmount] = @TotalAmount WHERE [ID] = @ID">
+        <DeleteParameters>
+            <asp:Parameter Name="ID" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="ClientId" Type="String" />
+            <asp:Parameter Name="OrderDate" Type="String" />
+            <asp:Parameter Name="Status" Type="String" />
+            <asp:Parameter Name="TotalAmount" Type="String" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="ClientId" Type="String" />
+            <asp:Parameter Name="OrderDate" Type="String" />
+            <asp:Parameter Name="Status" Type="String" />
+            <asp:Parameter Name="TotalAmount" Type="String" />
+            <asp:Parameter Name="ID" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
+
 </asp:Content>
 

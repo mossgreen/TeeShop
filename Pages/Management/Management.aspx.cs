@@ -23,4 +23,9 @@ public partial class Pages_Management_Management : System.Web.UI.Page
         //Redirect user to ManageProducts along with the selected rowId
         Response.Redirect("~/Pages/Management/ManageProducts.aspx?id=" + rowId);
     }
+
+    protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+    {
+
+    }
 }

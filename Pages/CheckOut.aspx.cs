@@ -11,6 +11,7 @@ public partial class Pages_CheckOut : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         FillPage();
+
     }
 
     private void FillPage()
@@ -18,15 +19,24 @@ public partial class Pages_CheckOut : System.Web.UI.Page
         //get id of current logged in user and display items in Cart
         string userId = User.Identity.GetUserId();
 
+        //generate a new order and store it in database
+        Order order = new Order
+        {
+            ClientId = userId,
+            OrderDate = (DateTime.Now).ToString(),
+            Status = "pendding",
+            TotalAmount = Application["totalAmount"].ToString(),
+        };
+
         OrderModel orderModel = new OrderModel();
-        Order order = orderModel.GetOrder(userId);
+        string orderId = orderModel.InsertOrder(order);
 
         ClientModel clientModel = new ClientModel();
         Client client = clientModel.GetClient(userId);
 
 
         lblClientName.Text = client.UserName;
-        lblOrderId.Text = order.ID.ToString();
+        lblOrderId.Text = orderId.ToString();
         lblDate.Text = order.OrderDate.ToString();
         lblStatus.Text = order.Status;
         lblAmount.Text = order.TotalAmount.ToString();
