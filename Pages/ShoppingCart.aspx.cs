@@ -20,17 +20,26 @@ public partial class Pages_ShoppingCart : System.Web.UI.Page
     {
         CartModel cartModel = new CartModel();
         double subTotal = 0;
-
+        double totalAmount = 0;
+        double shippingFee = 0;
         List<Cart> purchaseList = cartModel.GetOrdersInCart(userId);
-        CreateShopTable(purchaseList, out subTotal);
+
+            CreateShopTable(purchaseList, out subTotal);
 
         //add totals to webpage, with tax
-        double GST = subTotal * 0.11;
-        double totalAmount = subTotal + GST + 15; //15 is the shipping
-
+        double GST = subTotal * 0.15;
+        if(subTotal == 0) {
+            totalAmount = 0;
+        }
+        else
+        {
+            shippingFee = 15;
+             totalAmount = subTotal + GST + shippingFee; //15 is the shipping
+        }
         //display values on the page
         litTotal.Text = "$ " + subTotal;
-        litVat.Text = "$ " + GST;
+        litGST.Text = "$ " + GST;
+        litShippingFee.Text = "$ " + shippingFee;
         litTotalAmount.Text = "$ " + totalAmount;
 
     }

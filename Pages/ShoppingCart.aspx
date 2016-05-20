@@ -1,5 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ShoppingCart.aspx.cs" Inherits="Pages_ShoppingCart" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <style type="text/css">
+        .auto-style1 {
+            height: 23px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:Panel ID="pnlShoppingCart" runat="server"></asp:Panel>
@@ -18,16 +23,16 @@
                 GST(15%)<b>: </b>
             </td>
             <td>
-                <asp:Literal ID="litVat" Text="" runat="server"></asp:Literal>
+                <asp:Literal ID="litGST" runat="server"></asp:Literal>
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="auto-style1">
                 <b>Shipping: </b>
             </td>
-            <td>
-                $ 15
-            </td>
+            <td class="auto-style1">
+                <asp:Literal ID="litShippingFee" runat="server"></asp:Literal>
+            &nbsp;</td>
         </tr>
                 <tr>
             <td>
