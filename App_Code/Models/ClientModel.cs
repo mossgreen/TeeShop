@@ -23,7 +23,7 @@ public class ClientModel
             return customer;
 
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
             return null;
         }

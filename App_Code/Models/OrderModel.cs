@@ -47,6 +47,26 @@ public class OrderModel
         }
     }
 
+    public Order GetOrder(string clientId)
+    {
+        try
+        {
+            TeeShopEntities db = new TeeShopEntities();
+            OrderModel orderModel = new OrderModel();
+
+            var order = (from x in db.Orders
+                            where x.ClientId == clientId
+                            select x).FirstOrDefault();
+
+            return order;
+
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+
     public string DeleteOrder(int id)
     {
         try
