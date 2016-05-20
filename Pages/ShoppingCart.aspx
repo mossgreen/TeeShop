@@ -15,7 +15,7 @@
 
         <tr>
             <td>
-                <b>Vat: </b>
+                GST(15%)<b>: </b>
             </td>
             <td>
                 <asp:Literal ID="litVat" Text="" runat="server"></asp:Literal>

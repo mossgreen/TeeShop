@@ -25,13 +25,13 @@ public partial class Pages_ShoppingCart : System.Web.UI.Page
         CreateShopTable(purchaseList, out subTotal);
 
         //add totals to webpage, with tax
-        double vat = subTotal * 0.21;
-        double totalAmount = subTotal + vat + 15; //15 is the shipping
+        double GST = subTotal * 0.11;
+        double totalAmount = subTotal + GST + 15; //15 is the shipping
 
         //display values on the page
         litTotal.Text = "$ " + subTotal;
-        litVat.Text = "$ " + vat;
-        litTotal.Text = "$ " + totalAmount;
+        litVat.Text = "$ " + GST;
+        litTotalAmount.Text = "$ " + totalAmount;
 
     }
 
