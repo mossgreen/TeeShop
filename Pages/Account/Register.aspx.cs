@@ -11,4 +11,11 @@ public partial class Pages_Account_Register : System.Web.UI.Page
     {
 
     }
+
+
+
+    protected void btnRegister_Click(object sender, EventArgs e)
+    {
+
+    }
 }

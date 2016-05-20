@@ -37,7 +37,7 @@
     
     <br />
     <p>
-        <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="button" Width="150px" />
+        <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="button" Width="150px" OnClick="btnRegister_Click" />
     </p>
 </asp:Content>
 
