@@ -24,8 +24,8 @@ public partial class Pages_CheckOut : System.Web.UI.Page
         ClientModel clientModel = new ClientModel();
         Client client = clientModel.GetClient(userId);
 
-        lblName.Text = client.UserName;
-        lblNumber.Text = order.ID.ToString();
+        lblClientName.Text = client.UserName;
+        lblOrderId.Text = order.ID.ToString();
         lblDate.Text = order.OrderDate.ToString();
         lblStatus.Text = order.Status;
         lblAmount.Text = order.TotalAmount.ToString();

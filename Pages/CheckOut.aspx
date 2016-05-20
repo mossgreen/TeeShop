@@ -3,6 +3,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 
+    <style type="text/css">
+        .auto-style1 {
+            text-align: center;
+        }
+    </style>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <table class="table" style="margin-top:40px; width:80%; border-bottom-width:8px" >
@@ -17,13 +23,13 @@
         <tr>
             <td class="auto-style14">Customer Name:</td>
             <td class="auto-style12" >
-                <asp:Label ID="lblName" runat="server" ></asp:Label>
+                <asp:Label ID="lblClientName" runat="server" ></asp:Label>
             </td>
         </tr>
         <tr>
             <td class="auto-style14">Order ID:</td>
             <td class="auto-style12" >
-                <asp:Label ID="lblNumber" runat="server" ></asp:Label>
+                <asp:Label ID="lblOrderId" runat="server" ></asp:Label>
             </td>
         </tr>
         <tr>
@@ -47,10 +53,10 @@
  
 
         <tr>
-            <td class="auto-style14">&nbsp;</td>
-            <td class="auto-style13" >
-                <asp:Label ID="lblResult" runat="server" Text=""></asp:Label>
-                <asp:LinkButton ID="linkContinue" runat="server" PostBackUrl="~/Index.aspx" Text="Continue Shopping" Style ="float:right"></asp:LinkButton>
+            <td class="auto-style1">
+                &nbsp;</td>
+            <td class="auto-style1" >
+                <asp:LinkButton ID="lnkContinue" runat="server" PostBackUrl="~/Index.aspx" Text="Continue Shopping" Style ="float:right"></asp:LinkButton>
             </td>
         </tr>
         </table>

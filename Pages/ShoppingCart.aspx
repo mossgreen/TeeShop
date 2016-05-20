@@ -1,8 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ShoppingCart.aspx.cs" Inherits="Pages_ShoppingCart" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">
         .auto-style1 {
             height: 23px;
+        }
+        .auto-style2 {
+            text-align: right;
         }
     </style>
 </asp:Content>
@@ -19,8 +23,7 @@
         </tr>
 
         <tr>
-            <td>
-                GST(15%)<b>: </b>
+            <td>GST(15%)<b>: </b>
             </td>
             <td>
                 <asp:Literal ID="litGST" runat="server"></asp:Literal>
@@ -32,9 +35,9 @@
             </td>
             <td class="auto-style1">
                 <asp:Literal ID="litShippingFee" runat="server"></asp:Literal>
-            &nbsp;</td>
+                &nbsp;</td>
         </tr>
-                <tr>
+        <tr>
             <td>
                 <b>Total Amount: </b>
             </td>
@@ -43,14 +46,22 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="auto-style2">
                 <asp:LinkButton ID="lnkContinue" runat="server" PostBackUrl="~/index.aspx" Text="Continue Shopping"></asp:LinkButton>
-            OR
-                <asp:Button ID="btnCheckOut" runat="server"  Text="Check Out" CssClass="button" Width="250px" OnClick="btnCheckOut_Click" />
+                OR
             </td>
             <td>
-             <asp:Button ID="btnClear" runat="server" CssClass="button-clear" Width="250px" Text="Empty My Cart" Color="" OnClick="btnClear_Click" />
+                <asp:Button ID="btnCheckOut" runat="server" Text="Check Out" CssClass="button" Width="250px" OnClick="btnCheckOut_Click" />
 
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <asp:Button ID="btnClear" runat="server" CssClass="button-clear" Width="250px" Text="Empty My Cart" Color="" OnClick="btnClear_Click" />
+
+            </td>
+            <td>
                 <asp:Label ID="lblResult" runat="server" class="productPrice" Font-Bold="True" Font-Size="X-Large"></asp:Label>
             </td>
         </tr>

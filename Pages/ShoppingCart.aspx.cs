@@ -192,18 +192,26 @@ public partial class Pages_ShoppingCart : System.Web.UI.Page
         string clientId = Context.User.Identity.GetUserId();
         if (clientId != null)
         {
+
+            // mark items in cart as paid
+            CartModel cartModel = new CartModel();
+            List<Cart> carts = cartModel.GetOrdersInCart(clientId);
+            foreach (Cart cart in carts)
+            {
+                cart.IsInCart = Convert.ToBoolean(0);
+            }
+
+            //generate a new order and store it in database
             Order order = new Order
             {
-
                 ClientId = clientId,
                 OrderDate = (DateTime.Now).ToString(),
                 Status = "pendding",
                 TotalAmount = litTotalAmount.Text,
             };
 
-
-            OrderModel cartModel = new OrderModel();
-            lblResult.Text = cartModel.InsertOrder(order);
+            OrderModel orderModel = new OrderModel();
+            lblResult.Text = orderModel.InsertOrder(order);
 
             Response.Redirect("~/Pages/CheckOut.aspx");
 
