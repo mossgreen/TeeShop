@@ -27,18 +27,19 @@
                             <asp:HyperLink ID="HyperLink3" runat="server">Reports</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Pages/Management/Management.aspx">Management</asp:HyperLink></li>
-                    
-                    
+
+
                         <li style="float: right">
                             <asp:HyperLink ID="lnkRegister" runat="server" NavigateUrl="~/Pages/Account/Register.aspx">Register</asp:HyperLink>
                             <asp:HyperLink ID="litStatus" runat="server" NavigateUrl="~/Pages/ShoppingCart.aspx"></asp:HyperLink>
                         </li>
+
                         <li style="float: right">
-                            <asp:HyperLink ID="LnkLogIn" runat="server" NavigateUrl="~/Pages/Account/Login.aspx">Log in</asp:HyperLink>
-                            <asp:LinkButton ID="btnLogOut" runat="server" Text="Log out" />
+                            <asp:HyperLink ID="LnkLogin" runat="server" NavigateUrl="~/Pages/Account/Login.aspx">Login</asp:HyperLink>
+                            <asp:LinkButton ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" />
                         </li>
-                    
-                    
+
+
                     </ul>
                 </div>
                 <div id="content">

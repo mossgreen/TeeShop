@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <h4>Log In</h4><hr />
-    <asp:Literal runat="server" ID="litErrorMsg" Text="Invalid username or password." Visible="false" />
+    <asp:Literal runat="server" ID="litStatus" Text="Invalid username or password." Visible="False" />
     <asp:Label runat="server" AssociatedControlID="txtUserName">User name</asp:Label>
     <br />
     <asp:TextBox runat="server" ID="txtUserName" CssClass="inputs" />
