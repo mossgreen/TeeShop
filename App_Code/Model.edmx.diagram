@@ -11,6 +11,7 @@
         <AssociationConnector Association="TeeShopModel.FK_Cart_Product" />
         <AssociationConnector Association="TeeShopModel.FK_Product_ProductTypes" />
         <EntityTypeShape EntityType="TeeShopModel.Client" Width="1.5" PointX="6.5" PointY="3.5" />
+        <EntityTypeShape EntityType="TeeShopModel.Order" Width="1.5" PointX="8.625" PointY="3.625" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
