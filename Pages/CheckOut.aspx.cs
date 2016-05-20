@@ -29,10 +29,20 @@ public partial class Pages_CheckOut : System.Web.UI.Page
         lblDate.Text = order.OrderDate.ToString();
         lblStatus.Text = order.Status;
         lblAmount.Text = order.TotalAmount.ToString();
-
-
-
-
     }
-    
+
+
+    protected void lnkContinue_Click(object sender, EventArgs e)
+    {
+
+        CartModel cartModel = new CartModel();
+        List<Cart> carts = cartModel.GetAllCarts();      
+        foreach (Cart cart in carts)
+        {
+            int id = cart.ID;
+            cartModel.DeleteCart(id);
+        }
+
+        Response.Redirect("~/Index.aspx");
+    }
 }

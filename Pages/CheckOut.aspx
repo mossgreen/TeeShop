@@ -56,7 +56,7 @@
             <td class="auto-style1">
                 &nbsp;</td>
             <td class="auto-style1" >
-                <asp:LinkButton ID="lnkContinue" runat="server" PostBackUrl="~/Index.aspx" Text="Continue Shopping" Style ="float:right"></asp:LinkButton>
+                <asp:LinkButton ID="lnkContinue" runat="server" Text="Continue Shopping" Style ="float:right" OnClick="lnkContinue_Click"></asp:LinkButton>
             </td>
         </tr>
         </table>

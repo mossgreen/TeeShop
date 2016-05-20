@@ -56,6 +56,7 @@
             </td>
 
         </tr>
+        <tr><p></p></tr>
         <tr>
             <td>
                 <asp:Button ID="btnClear" runat="server" CssClass="button-clear" Width="250px" Text="Empty My Cart" Color="" OnClick="btnClear_Click" />
