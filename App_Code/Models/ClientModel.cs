@@ -9,12 +9,12 @@ using System.Web;
 public class ClientModel
 {
 
-    public Client GetCustomer(string guId)
+    public Client GetClient(string guId)
     {
         try
         {
             TeeShopEntities db = new TeeShopEntities();
-            CustomerModel customerModel = new CustomerModel();
+            ClientModel clientModel = new ClientModel();
 
             var customer = (from x in db.Clients
                             where x.GUID == guId

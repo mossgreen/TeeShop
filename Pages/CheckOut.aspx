@@ -15,13 +15,13 @@
 
         </tr>
         <tr>
-            <td class="auto-style14">Account Name:</td>
+            <td class="auto-style14">Customer Name:</td>
             <td class="auto-style12" >
                 <asp:Label ID="lblName" runat="server" ></asp:Label>
             </td>
         </tr>
         <tr>
-            <td class="auto-style14">Order Number:</td>
+            <td class="auto-style14">Order ID:</td>
             <td class="auto-style12" >
                 <asp:Label ID="lblNumber" runat="server" ></asp:Label>
             </td>
