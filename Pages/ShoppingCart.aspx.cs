@@ -158,4 +158,22 @@ public partial class Pages_ShoppingCart : System.Web.UI.Page
 
         Response.Redirect("~/Pages/ShoppingCart.aspx");
     }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+      
+
+        CartModel cartModel = new CartModel();
+
+        List<Cart> carts = cartModel.GetAllCarts();
+
+        //+ id.ToString();
+        foreach (Cart cart in carts)
+        {
+            int id = cart.ID;
+            cartModel.DeleteCart(id);
+        }
+
+        Response.Redirect("~/Index.aspx");
+    }
 }

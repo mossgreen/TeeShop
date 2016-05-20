@@ -121,4 +121,22 @@ public class CartModel
             db.SaveChanges();
         }
     }
+
+    public List<Cart> GetAllCarts()
+    {
+        try
+        {
+            using (TeeShopEntities db = new TeeShopEntities())
+            {
+                List<Cart> carts = (from x in db.Carts
+                                          select x).ToList();
+                return carts;
+            }
+        }
+        catch (Exception)
+        {
+
+            return null;
+        }
+    }
 }

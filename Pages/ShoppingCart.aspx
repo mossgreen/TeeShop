@@ -43,6 +43,11 @@
             OR
                 <asp:Button ID="btnCheckOut" runat="server" PostBackUrl="~/Pages/Success.aspx" Text="Check Out" CssClass="button" Width="250px" />
             </td>
+            <td>
+             <asp:Button ID="btnClear" runat="server" CssClass="button-clear" Width="250px" Text="Empty My Cart" Color="" OnClick="btnClear_Click" />
+
+                <asp:Label ID="lblResult" runat="server" class="productPrice" Font-Bold="True" Font-Size="X-Large"></asp:Label>
+            </td>
         </tr>
     </table>
 </asp:Content>
