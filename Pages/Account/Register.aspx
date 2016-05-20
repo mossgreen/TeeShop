@@ -32,6 +32,10 @@
         <asp:ListItem Value="3">Mobile</asp:ListItem>
     </asp:DropDownList>
     <p></p>
+        Email:<br />
+    <asp:TextBox runat="server" ID="txtEmail" CssClass="inputs" /><br />
+    
+    <br />
     Address:<br />
     <asp:TextBox runat="server" ID="txtAddress" CssClass="inputs" /><br />
     

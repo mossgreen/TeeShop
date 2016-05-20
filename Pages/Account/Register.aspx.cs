@@ -26,13 +26,10 @@ public partial class Pages_Account_Register : System.Web.UI.Page
             System.Configuration.ConfigurationManager.ConnectionStrings["TeeShopConnectionString"].ConnectionString;
         var manager = new UserManager<IdentityUser>(userStore);
 
-        IdentityUser user = new IdentityUser();
-        user.UserName = txtUserName.Text;
-
-
 
         ////Create new user and try to store in DB.
-        //var user = new IdentityUser { UserName = txtUserName.Text };
+        IdentityUser user = new IdentityUser();
+        user.UserName = txtUserName.Text;
 
         if (txtPassword.Text == txtConfirmPassword.Text)
         {
@@ -41,17 +38,18 @@ public partial class Pages_Account_Register : System.Web.UI.Page
                 IdentityResult result = manager.Create(user, txtPassword.Text);
                 if (result.Succeeded)
                 {
-                    //    Customer customer = new Customer
-                    //    {
-                    //        UserName = txtUserName.Text,
-                    //        Email = txtEmail.Text,
-                    //        PhoneType = ddlPhoneType.SelectedValue.ToString(),
-                    //        PhoneNumber = Convert.ToInt32(txtPhoneNumber.Text),
-                    //        GUID = user.Id,
-                    //    };
+                    Client client = new Client
+                    {
+                        UserName = txtUserName.Text,
+                        Email = txtEmail.Text,
+                        PhoneType = ddlPhoneType.SelectedValue.ToString(),
+                        PhoneNumber = (txtPhoneNumber.Text).ToString(),
+                        GUID = user.Id,
+                        Address = txtAddress.Text,
+                    };
 
-                    //    CustomerModel customerModel = new CustomerModel();
-                    //    customerModel.InsertCustomer(customer);
+                    ClientModel clientModel = new ClientModel();
+                    clientModel.InsertClient(client);
 
                     //Store user in DB
                     var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -40,8 +41,7 @@ public partial class Pages_Product : System.Web.UI.Page
     {
         if (!string.IsNullOrWhiteSpace(Request.QueryString["id"]))
         {
-            //string clientId = Context.User.Identity.GetUserId();
-            string clientId = "-1";
+            string clientId = Context.User.Identity.GetUserId();
             if (clientId != null)
             {
 
