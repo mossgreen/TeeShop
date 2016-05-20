@@ -20,7 +20,7 @@
                 <div id="navigation">
                     <ul id="nav">
                         <li>
-                            <asp:HyperLink ID="HyperLink1" runat="server">Webshop</asp:HyperLink></li>
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Index.aspx">Shop Home</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Pages/ContactUs.aspx">About us</asp:HyperLink></li>
                         <li>
