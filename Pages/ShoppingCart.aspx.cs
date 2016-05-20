@@ -24,17 +24,18 @@ public partial class Pages_ShoppingCart : System.Web.UI.Page
         double shippingFee = 0;
         List<Cart> purchaseList = cartModel.GetOrdersInCart(userId);
 
-            CreateShopTable(purchaseList, out subTotal);
+        CreateShopTable(purchaseList, out subTotal);
 
         //add totals to webpage, with tax
         double GST = subTotal * 0.15;
-        if(subTotal == 0) {
+        if (subTotal == 0)
+        {
             totalAmount = 0;
         }
         else
         {
             shippingFee = 15;
-             totalAmount = subTotal + GST + shippingFee; //15 is the shipping
+            totalAmount = subTotal + GST + shippingFee; //15 is the shipping
         }
         //display values on the page
         litTotal.Text = "$ " + subTotal;
@@ -170,7 +171,7 @@ public partial class Pages_ShoppingCart : System.Web.UI.Page
 
     protected void btnClear_Click(object sender, EventArgs e)
     {
-      
+
 
         CartModel cartModel = new CartModel();
 
@@ -188,40 +189,39 @@ public partial class Pages_ShoppingCart : System.Web.UI.Page
 
     protected void btnCheckOut_Click(object sender, EventArgs e)
     {
-        if (!string.IsNullOrWhiteSpace(Request.QueryString["id"]))
+        string clientId = Context.User.Identity.GetUserId();
+        if (clientId != null)
         {
-            string clientId = Context.User.Identity.GetUserId();
-            if (clientId != null)
+            try
             {
-                //        public int ID { get; set; }
-                //public int ClientId { get; set; }
-                //public System.DateTime OrderDate { get; set; }
-                //public string Status { get; set; }
-                //public double Total { get; set; }
-
+                int clientID = Convert.ToInt32(clientId);
 
                 Order order = new Order
                 {
-                    
-                    ClientId = Convert.ToInt32(clientId),
+
+                    ClientId = clientID,
                     OrderDate = DateTime.Now,
                     Status = "pendding",
-                    Total = Convert.ToDouble(litTotalAmount.Text),
+                    Total = 12,
                 };
+
 
                 OrderModel cartModel = new OrderModel();
                 lblResult.Text = cartModel.InsertOrder(order);
+
+                Response.Redirect("~/Pages/CheckOut.aspx");
+
             }
-            else
+            catch (Exception ex)
             {
-                lblResult.Text = "Please log in to order items";
+                lblResult.Text = ex.ToString();
             }
+
+
         }
-
-
-
-
-
-
-}
+        else
+        {
+            lblResult.Text = "Please log in to order items";
+        }
+    }
 }
