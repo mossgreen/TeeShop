@@ -185,4 +185,43 @@ public partial class Pages_ShoppingCart : System.Web.UI.Page
 
         Response.Redirect("~/Index.aspx");
     }
+
+    protected void btnCheckOut_Click(object sender, EventArgs e)
+    {
+        if (!string.IsNullOrWhiteSpace(Request.QueryString["id"]))
+        {
+            string clientId = Context.User.Identity.GetUserId();
+            if (clientId != null)
+            {
+                //        public int ID { get; set; }
+                //public int ClientId { get; set; }
+                //public System.DateTime OrderDate { get; set; }
+                //public string Status { get; set; }
+                //public double Total { get; set; }
+
+
+                Order order = new Order
+                {
+                    
+                    ClientId = Convert.ToInt32(clientId),
+                    OrderDate = DateTime.Now,
+                    Status = "pendding",
+                    Total = Convert.ToDouble(litTotalAmount.Text),
+                };
+
+                OrderModel cartModel = new OrderModel();
+                lblResult.Text = cartModel.InsertOrder(order);
+            }
+            else
+            {
+                lblResult.Text = "Please log in to order items";
+            }
+        }
+
+
+
+
+
+
+}
 }

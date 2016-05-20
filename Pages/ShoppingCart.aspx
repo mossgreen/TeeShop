@@ -46,7 +46,7 @@
             <td>
                 <asp:LinkButton ID="lnkContinue" runat="server" PostBackUrl="~/index.aspx" Text="Continue Shopping"></asp:LinkButton>
             OR
-                <asp:Button ID="btnCheckOut" runat="server" PostBackUrl="~/Pages/Success.aspx" Text="Check Out" CssClass="button" Width="250px" />
+                <asp:Button ID="btnCheckOut" runat="server"  Text="Check Out" CssClass="button" Width="250px" OnClick="btnCheckOut_Click" />
             </td>
             <td>
              <asp:Button ID="btnClear" runat="server" CssClass="button-clear" Width="250px" Text="Empty My Cart" Color="" OnClick="btnClear_Click" />
