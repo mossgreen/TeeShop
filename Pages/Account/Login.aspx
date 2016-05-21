@@ -2,15 +2,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">
         .auto-style1 {
-            font-weight: normal;
-            color: #FF3300;
+            color: #FF0000;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <h4>Log In&nbsp;&nbsp;&nbsp; <strong>
+    <h4>Log In&nbsp;&nbsp;&nbsp; 
         <asp:Label ID="litStatus" runat="server" CssClass="auto-style1"></asp:Label>
-        </strong></h4>
+    </h4>
     
     <hr />
  

@@ -36,8 +36,19 @@ public partial class Pages_Account_Login : System.Web.UI.Page
                 IsPersistent = false
             }, userIdentity);
 
-            //Redirect user to homepage
-            Response.Redirect("~/Index.aspx");
+            ClientModel clientModel = new ClientModel();
+            Client client = clientModel.GetClient(user.Id);
+
+            if (client.IsActive == 0)
+            {
+                litStatus.Text = "this clientId has been disabled by admin.";
+
+            }
+            else
+            {
+                //Redirect user to homepage
+                Response.Redirect("~/Index.aspx");
+            }
         }
         else
         {

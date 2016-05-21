@@ -32,6 +32,7 @@ public partial class Client
     public string PhoneNumber { get; set; }
     public string PhoneType { get; set; }
     public string Address { get; set; }
+    public Nullable<int> IsActive { get; set; }
 }
 
 public partial class Order
