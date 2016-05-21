@@ -19,6 +19,10 @@
     
 }
 
+
+
+       
+
 #navigation
 {
     height: 45px;
@@ -46,6 +50,7 @@
     border-left: 1px solid #FFFFFF;
 }
 
+
 #nav a:link , #nav a :visited, #nav a:active 
 {
     display: block;
@@ -62,6 +67,8 @@
     padding: 20px;
     min-height: 400px;
 }
+
+
 
 
 

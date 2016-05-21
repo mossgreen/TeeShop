@@ -16,9 +16,15 @@
             <div id="wrapper">
                 <div id="banner">
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/Banner.png" Width="100%" />
+                    
+                
                 </div>
                 <div id="navigation">
                     <ul id="nav">
+                        <li>
+                            <asp:ImageButton ID="ImgLogo" cssClass="ImgLogo" runat ="server" ImageUrl="~/Images/logo.png" PostBackUrl="~/Index.aspx"  Width="70px" ImageAlign="Baseline" />
+                           
+                        </li>
                         <li>
                             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Index.aspx">Shop Home</asp:HyperLink></li>
                         <li>
