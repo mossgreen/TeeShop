@@ -128,6 +128,7 @@
     <br />
     <asp:Label ID="Label2" runat="server" CssClass="button" Text="Modify Client Information:"></asp:Label>
     <br />
+    <br />
     <asp:GridView ID="grdClients" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="ID" DataSourceID="sdsClients" ForeColor="Black" GridLines="Vertical"  Width="100%">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
@@ -175,9 +176,11 @@
 
     <br />
     <br />
-    <asp:Label runat="server" CssClass="button" Text="Manage Suppliers"></asp:Label>
+        <asp:LinkButton ID="btnAddSupplier" Text="Add a Suppliers" runat="server" CssClass="button" PostBackUrl="~/Pages/Management/ManageSuppliers.aspx"></asp:LinkButton>
     <br />
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="Id" DataSourceID="sdsSuppliers" ForeColor="Black" GridLines="Vertical">
+    <br />
+
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="Id" DataSourceID="sdsSuppliers" ForeColor="Black" GridLines="Vertical" OnRowEditing="GridView1_RowEditing1">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />

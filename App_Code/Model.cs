@@ -82,6 +82,7 @@ public partial class ProductType
 public partial class Supplier
 {
     public int Id { get; set; }
+    public string ProductName { get; set; }
     public string Name { get; set; }
     public string PhoneNumber { get; set; }
     public string Email { get; set; }
