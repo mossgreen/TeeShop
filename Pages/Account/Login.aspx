@@ -1,9 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Pages_Account_Login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <style type="text/css">
+        .auto-style1 {
+            font-weight: normal;
+            color: #FF3300;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <h4>Log In</h4><hr />
-    <asp:Literal runat="server" ID="litStatus" Text="Invalid username or password." Visible="False" />
+    <h4>Log In&nbsp;&nbsp;&nbsp; <strong>
+        <asp:Label ID="litStatus" runat="server" CssClass="auto-style1"></asp:Label>
+        </strong></h4>
+    
+    <hr />
+ 
     <asp:Label runat="server" AssociatedControlID="txtUserName">User name</asp:Label>
     <br />
     <asp:TextBox runat="server" ID="txtUserName" CssClass="inputs" />
