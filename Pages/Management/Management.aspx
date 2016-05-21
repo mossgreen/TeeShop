@@ -181,9 +181,10 @@
     <br />
     <br />
 
-    <asp:GridView ID="grdSupplier" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="Id" DataSourceID="sdsSuppliers" ForeColor="Black" GridLines="Vertical" OnRowEditing="GridView1_RowEditing1">
+    <asp:GridView ID="grdSupplier" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="Id" DataSourceID="sdsSuppliers" ForeColor="Black" GridLines="Vertical" OnRowEditing="grdSupplier_RowEditing">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
+            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
             <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
             <asp:BoundField DataField="ProductName" HeaderText="ProductName" SortExpression="ProductName" />
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
@@ -200,7 +201,23 @@
         <SortedDescendingCellStyle BackColor="#EAEAD3" />
         <SortedDescendingHeaderStyle BackColor="#575357" />
     </asp:GridView>
-    <asp:SqlDataSource ID="sdsSuppliers" runat="server" ConnectionString="<%$ ConnectionStrings:TeeShopConnectionString %>" SelectCommand="SELECT * FROM [Supplier]">
+    <asp:SqlDataSource ID="sdsSuppliers" runat="server" ConnectionString="<%$ ConnectionStrings:TeeShopConnectionString %>" SelectCommand="SELECT * FROM [Supplier] ORDER BY [Id]" DeleteCommand="DELETE FROM [Supplier] WHERE [Id] = @Id" InsertCommand="INSERT INTO [Supplier] ([ProductName], [Name], [PhoneNumber], [Email]) VALUES (@ProductName, @Name, @PhoneNumber, @Email)" UpdateCommand="UPDATE [Supplier] SET [ProductName] = @ProductName, [Name] = @Name, [PhoneNumber] = @PhoneNumber, [Email] = @Email WHERE [Id] = @Id">
+        <DeleteParameters>
+            <asp:Parameter Name="Id" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="ProductName" Type="String" />
+            <asp:Parameter Name="Name" Type="String" />
+            <asp:Parameter Name="PhoneNumber" Type="String" />
+            <asp:Parameter Name="Email" Type="String" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="ProductName" Type="String" />
+            <asp:Parameter Name="Name" Type="String" />
+            <asp:Parameter Name="PhoneNumber" Type="String" />
+            <asp:Parameter Name="Email" Type="String" />
+            <asp:Parameter Name="Id" Type="Int32" />
+        </UpdateParameters>
     </asp:SqlDataSource>
 
 </asp:Content>

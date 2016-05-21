@@ -52,15 +52,17 @@ public partial class Pages_Management_Management : System.Web.UI.Page
 
 
 
-    protected void GridView1_RowEditing1(object sender, GridViewEditEventArgs e)
+
+
+    protected void grdSupplier_RowEditing(object sender, GridViewEditEventArgs e)
     {
         //Get selected row
-        GridViewRow row = grdOrders.Rows[e.NewEditIndex];
+        GridViewRow row = grdSupplier.Rows[e.NewEditIndex];
 
         //Get Id of selected product
         int rowId = Convert.ToInt32(row.Cells[1].Text);
 
         //Redirect user to ManageProducts along with the selected rowId
-        Response.Redirect("~/Pages/Management/ManageSuppliers.aspx?id="+rowId);
+        Response.Redirect("~/Pages/Management/ManageSuppliers.aspx?id=" + rowId);
     }
 }

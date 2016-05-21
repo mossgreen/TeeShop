@@ -10,20 +10,20 @@ public partial class Pages_Management_ManageSuppliers : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        ////Check if the url contains an id parameter
-        //if (!String.IsNullOrWhiteSpace(Request.QueryString["id"]))
-        //{
-        //    int id = Convert.ToInt32(Request.QueryString["id"]);
+        //Check if the url contains an id parameter
+        if (!String.IsNullOrWhiteSpace(Request.QueryString["id"]))
+        {
+            int id = Convert.ToInt32(Request.QueryString["id"]);
 
-        //    //Get selected supplier from DB
-        //    SupplierModel supplierModel = new SupplierModel();
-        //    Supplier supplier = supplierModel.GetSupplier(id);
+            //Get selected supplier from DB
+            SupplierModel supplierModel = new SupplierModel();
+            Supplier supplier = supplierModel.GetSupplier(id);
 
-        //    //set value to page
-        //    txtEmail.Text = supplier.Email;
-        //    txtName.Text = supplier.ProductName;
-        //    txtPhoneNumber.Text = supplier.PhoneNumber;
-        //}
+            //set value to page
+            txtEmail.Text = supplier.Email.ToString();
+            txtName.Text = supplier.ProductName.ToString();
+            txtPhoneNumber.Text = supplier.PhoneNumber.ToString();
+        }
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)

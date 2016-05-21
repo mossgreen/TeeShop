@@ -9,8 +9,6 @@
         &nbsp; Product Name</p><p>
         <asp:DropDownList ID="ddlProductId" runat="server" DataSourceID="sdsProduct" DataTextField="Name" DataValueField="Name"></asp:DropDownList>
         <asp:SqlDataSource ID="sdsProduct" runat="server" ConnectionString="<%$ ConnectionStrings:TeeShopConnectionString %>" SelectCommand="SELECT [Name] FROM [Product] ORDER BY [Name]"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="sdsProductIds" runat="server" ConnectionString="<%$ ConnectionStrings:TeeShopConnectionString %>" SelectCommand="SELECT [Name] FROM [Product]">
-        </asp:SqlDataSource>
     </p>
     <p>
         Supplier
