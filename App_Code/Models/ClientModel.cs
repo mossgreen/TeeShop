@@ -29,6 +29,26 @@ public class ClientModel
         }
     }
 
+    public Client GetClient(int Id)
+    {
+        try
+        {
+            TeeShopEntities db = new TeeShopEntities();
+            ClientModel clientModel = new ClientModel();
+
+            var customer = (from x in db.Clients
+                            where x.ID == Id
+                            select x).FirstOrDefault();
+
+            return customer;
+
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+
 
     public string InsertClient(Client client)
     {

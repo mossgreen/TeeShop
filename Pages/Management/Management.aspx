@@ -126,18 +126,17 @@
     <br />
     <br />
     Modify Client Information<br />
-    <asp:GridView ID="grdClients" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="ID" DataSourceID="sdsClient" ForeColor="Black" GridLines="Vertical"  Width="100%">
+    <asp:GridView ID="grdClients" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="ID" DataSourceID="sdsClients" ForeColor="Black" GridLines="Vertical"  Width="100%">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
             <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
-            <asp:BoundField DataField="GUID" HeaderText="GUID" SortExpression="GUID" />
             <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
-            <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
-            <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
             <asp:BoundField DataField="PhoneNumber" HeaderText="PhoneNumber" SortExpression="PhoneNumber" />
+            <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
             <asp:BoundField DataField="PhoneType" HeaderText="PhoneType" SortExpression="PhoneType" />
             <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
+            <asp:BoundField DataField="IsActive" HeaderText="IsActive" SortExpression="IsActive" />
         </Columns>
         <FooterStyle BackColor="#CCCC99" />
         <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
@@ -149,31 +148,28 @@
         <SortedDescendingCellStyle BackColor="#EAEAD3" />
         <SortedDescendingHeaderStyle BackColor="#575357" />
     </asp:GridView>
-    <asp:SqlDataSource ID="sdsClient" runat="server" ConnectionString="<%$ ConnectionStrings:TeeShopConnectionString %>" DeleteCommand="DELETE FROM [Client] WHERE [ID] = @ID" InsertCommand="INSERT INTO [Client] ([GUID], [UserName], [Password], [Email], [PhoneNumber], [PhoneType], [Address]) VALUES (@GUID, @UserName, @Password, @Email, @PhoneNumber, @PhoneType, @Address)" SelectCommand="SELECT * FROM [Client] ORDER BY [ID], [UserName]" UpdateCommand="UPDATE [Client] SET [GUID] = @GUID, [UserName] = @UserName, [Password] = @Password, [Email] = @Email, [PhoneNumber] = @PhoneNumber, [PhoneType] = @PhoneType, [Address] = @Address WHERE [ID] = @ID">
+    <asp:SqlDataSource ID="sdsClients" runat="server" ConnectionString="<%$ ConnectionStrings:TeeShopConnectionString %>" DeleteCommand="DELETE FROM [Client] WHERE [ID] = @ID" InsertCommand="INSERT INTO [Client] ([UserName], [PhoneNumber], [Email], [PhoneType], [Address], [IsActive]) VALUES (@UserName, @PhoneNumber, @Email, @PhoneType, @Address, @IsActive)" SelectCommand="SELECT [ID], [UserName], [PhoneNumber], [Email], [PhoneType], [Address], [IsActive] FROM [Client] ORDER BY [ID]" UpdateCommand="UPDATE [Client] SET [UserName] = @UserName, [PhoneNumber] = @PhoneNumber, [Email] = @Email, [PhoneType] = @PhoneType, [Address] = @Address, [IsActive] = @IsActive WHERE [ID] = @ID">
         <DeleteParameters>
             <asp:Parameter Name="ID" Type="Int32" />
         </DeleteParameters>
         <InsertParameters>
-            <asp:Parameter Name="GUID" Type="String" />
             <asp:Parameter Name="UserName" Type="String" />
-            <asp:Parameter Name="Password" Type="String" />
-            <asp:Parameter Name="Email" Type="String" />
             <asp:Parameter Name="PhoneNumber" Type="String" />
+            <asp:Parameter Name="Email" Type="String" />
             <asp:Parameter Name="PhoneType" Type="String" />
             <asp:Parameter Name="Address" Type="String" />
+            <asp:Parameter Name="IsActive" Type="Int32" />
         </InsertParameters>
         <UpdateParameters>
-            <asp:Parameter Name="GUID" Type="String" />
             <asp:Parameter Name="UserName" Type="String" />
-            <asp:Parameter Name="Password" Type="String" />
-            <asp:Parameter Name="Email" Type="String" />
             <asp:Parameter Name="PhoneNumber" Type="String" />
+            <asp:Parameter Name="Email" Type="String" />
             <asp:Parameter Name="PhoneType" Type="String" />
             <asp:Parameter Name="Address" Type="String" />
+            <asp:Parameter Name="IsActive" Type="Int32" />
             <asp:Parameter Name="ID" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="sdsClients" runat="server"></asp:SqlDataSource>
 
 </asp:Content>
 
