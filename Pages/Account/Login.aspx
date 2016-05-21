@@ -14,11 +14,11 @@
     <hr />
  
     <asp:Label runat="server" AssociatedControlID="txtUserName">User name</asp:Label>
-    <br />
+    &nbsp;*<br />
     <asp:TextBox runat="server" ID="txtUserName" CssClass="inputs" />
     <br />
     <asp:Label runat="server" AssociatedControlID="txtPassword">Password</asp:Label>
-    <br />
+    &nbsp;*<br />
     <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" CssClass="inputs" />
     <br />
     <asp:Button ID="btnSignIn" runat="server" Text="Log in"  CssClass="button" OnClick="btnSignIn_Click"/>
