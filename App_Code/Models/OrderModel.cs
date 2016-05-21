@@ -55,7 +55,17 @@ public class OrderModel
 
             //Fetch object from db
             Order o = db.Orders.Find(id);
-            o.Status = boolean.ToString();
+            if(boolean == true)
+            {
+                o.Status = "delivered";
+            }
+            else
+            {
+                o.Status = "pendding";
+            }
+
+
+            
 
             db.SaveChanges();
             return o.ID + " was successfully updated!";
@@ -66,7 +76,7 @@ public class OrderModel
         }
     }
 
-    public Order GetOrder(string clientId)
+    public Order GetOrder( int OrderId)
     {
         try
         {
@@ -74,7 +84,7 @@ public class OrderModel
             OrderModel orderModel = new OrderModel();
 
             var order = (from x in db.Orders
-                            where x.ClientId == clientId
+                            where x.ID == OrderId
                             select x).FirstOrDefault();
 
             return order;

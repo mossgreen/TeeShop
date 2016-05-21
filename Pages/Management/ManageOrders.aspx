@@ -4,6 +4,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <p>
+        OrderId:</p>
+    <p>
+        <asp:Label ID="lblOrderId" runat="server" Text="Label"></asp:Label>
+    </p>
+    <p>
         Status:</p>
     <p>
         <asp:DropDownList ID="ddlStatus" runat="server" CssClass="buttons">
