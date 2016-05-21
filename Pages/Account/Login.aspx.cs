@@ -26,16 +26,6 @@ public partial class Pages_Account_Login : System.Web.UI.Page
 
         if (user != null)
         {
-            //Call OWIN functionality
-            var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
-            var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
-
-            //Sign in user
-            authenticationManager.SignIn(new AuthenticationProperties
-            {
-                IsPersistent = false
-            }, userIdentity);
-
             ClientModel clientModel = new ClientModel();
             Client client = clientModel.GetClient(user.Id);
 
@@ -46,6 +36,15 @@ public partial class Pages_Account_Login : System.Web.UI.Page
             }
             else
             {
+                //Call OWIN functionality
+                var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+                var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+
+                //Sign in user
+                authenticationManager.SignIn(new AuthenticationProperties
+                {
+                    IsPersistent = false
+                }, userIdentity);
                 //Redirect user to homepage
                 Response.Redirect("~/Index.aspx");
             }
