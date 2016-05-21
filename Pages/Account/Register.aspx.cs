@@ -75,4 +75,13 @@ public partial class Pages_Account_Register : System.Web.UI.Page
         }
     }
 
+    protected override void OnError(EventArgs e)
+    {
+        Exception ex = Server.GetLastError();
+        Session["ExceptionObject"] = ex;
+        //Server.ClearError();
+        //Server.Transfer("~/Pages/DisplayErrors.aspx?from=RegistrationPage");
+    }
+
+
 }

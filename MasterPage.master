@@ -30,7 +30,9 @@
                         <li>
                             <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Pages/ContactUs.aspx">About us</asp:HyperLink></li>
                         <li>
-                            </li>
+                            <asp:Menu ID="Menu1" runat="server">
+                            </asp:Menu>
+                        </li>
                         <li>
                             <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Pages/Management/Management.aspx">Management</asp:HyperLink></li>
 
