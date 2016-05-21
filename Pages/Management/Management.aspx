@@ -83,7 +83,8 @@
 </asp:SqlDataSource>
 
     <br />
-    Modify Order status:<br />
+    <asp:Label ID="Label1" runat="server" CssClass="button" Text="Modify Order status:"></asp:Label>
+    <br />
     <asp:GridView ID="grdOrders" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="ID" DataSourceID="sdsOrders" ForeColor="Black" GridLines="Vertical" OnRowEditing="GridView1_RowEditing" Width="60%">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
@@ -125,7 +126,8 @@
 
     <br />
     <br />
-    Modify Client Information<br />
+    <asp:Label ID="Label2" runat="server" CssClass="button" Text="Modify Client Information:"></asp:Label>
+    <br />
     <asp:GridView ID="grdClients" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="ID" DataSourceID="sdsClients" ForeColor="Black" GridLines="Vertical"  Width="100%">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
@@ -168,6 +170,46 @@
             <asp:Parameter Name="Address" Type="String" />
             <asp:Parameter Name="IsActive" Type="Int32" />
             <asp:Parameter Name="ID" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
+
+    <br />
+    <br />
+    <asp:Label runat="server" CssClass="button" Text="Manage Suppliers"></asp:Label>
+    <br />
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="Id" DataSourceID="sdsSuppliers" ForeColor="Black" GridLines="Vertical">
+        <AlternatingRowStyle BackColor="White" />
+        <Columns>
+            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+            <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+            <asp:BoundField DataField="PhoneNumber" HeaderText="PhoneNumber" SortExpression="PhoneNumber" />
+            <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+        </Columns>
+        <FooterStyle BackColor="#CCCC99" />
+        <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
+        <RowStyle BackColor="#F7F7DE" />
+        <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+        <SortedAscendingCellStyle BackColor="#FBFBF2" />
+        <SortedAscendingHeaderStyle BackColor="#848384" />
+        <SortedDescendingCellStyle BackColor="#EAEAD3" />
+        <SortedDescendingHeaderStyle BackColor="#575357" />
+    </asp:GridView>
+    <asp:SqlDataSource ID="sdsSuppliers" runat="server" ConnectionString="<%$ ConnectionStrings:TeeShopConnectionString %>" DeleteCommand="DELETE FROM [Supplier] WHERE [Id] = @Id" InsertCommand="INSERT INTO [Supplier] ([Name], [PhoneNumber], [Email]) VALUES (@Name, @PhoneNumber, @Email)" SelectCommand="SELECT * FROM [Supplier] ORDER BY [Id]" UpdateCommand="UPDATE [Supplier] SET [Name] = @Name, [PhoneNumber] = @PhoneNumber, [Email] = @Email WHERE [Id] = @Id">
+        <DeleteParameters>
+            <asp:Parameter Name="Id" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="Name" Type="String" />
+            <asp:Parameter Name="PhoneNumber" Type="String" />
+            <asp:Parameter Name="Email" Type="String" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="Name" Type="String" />
+            <asp:Parameter Name="PhoneNumber" Type="String" />
+            <asp:Parameter Name="Email" Type="String" />
+            <asp:Parameter Name="Id" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
 
