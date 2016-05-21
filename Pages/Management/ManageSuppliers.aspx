@@ -6,13 +6,10 @@
     <p>
         &nbsp;</p>
     <p>
-        &nbsp;
-        ProductId</p><p>
-        <asp:DropDownList ID="ddlProductId" runat="server" DataSourceID="sdsProductIds" DataTextField="ID" DataValueField="ID"></asp:DropDownList>
-        <asp:SqlDataSource ID="sdsProductIds" runat="server" ConnectionString="<%$ ConnectionStrings:TeeShopConnectionString %>" DeleteCommand="DELETE FROM [Product] WHERE [ID] = @ID" SelectCommand="SELECT [ID] FROM [Product] ORDER BY [ID]">
-            <DeleteParameters>
-                <asp:Parameter Name="ID" Type="Int32" />
-            </DeleteParameters>
+        &nbsp; Product Name</p><p>
+        <asp:DropDownList ID="ddlProductId" runat="server" DataSourceID="sdsProduct" DataTextField="Name" DataValueField="Name"></asp:DropDownList>
+        <asp:SqlDataSource ID="sdsProduct" runat="server" ConnectionString="<%$ ConnectionStrings:TeeShopConnectionString %>" SelectCommand="SELECT [Name] FROM [Product] ORDER BY [Name]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="sdsProductIds" runat="server" ConnectionString="<%$ ConnectionStrings:TeeShopConnectionString %>" SelectCommand="SELECT [Name] FROM [Product]">
         </asp:SqlDataSource>
     </p>
     <p>

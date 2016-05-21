@@ -61,6 +61,6 @@ public partial class Pages_Management_Management : System.Web.UI.Page
         int rowId = Convert.ToInt32(row.Cells[1].Text);
 
         //Redirect user to ManageProducts along with the selected rowId
-        Response.Redirect("~/Pages/Management/ManageSuppliers.aspx");
+        Response.Redirect("~/Pages/Management/ManageSuppliers.aspx?id="+rowId);
     }
 }

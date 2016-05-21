@@ -8,6 +8,21 @@ using System.Web;
 /// </summary>
 public class SupplierModel
 {
+
+    public Supplier GetSupplier(int id)
+    {
+        try
+        {
+            TeeShopEntities db = new TeeShopEntities();
+            Supplier supplier = db.Suppliers.Find(id);
+
+            return supplier;
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
     public string InsertSupplier(Supplier supplier)
     {
         try
