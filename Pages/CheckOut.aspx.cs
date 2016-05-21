@@ -11,12 +11,6 @@ public partial class Pages_CheckOut : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //firstly, use server transfer to get totalamout from shoppingCart page
-        ////create instance of source web form
-        //Pages_ShoppingCart thisPage;
-        ////get reference to current handler instance
-        //thisPage = (Pages_ShoppingCart)Context.Handler;
-        //string totalAmount = thisPage.totalAmount;
-
         string totalAmount = "";
         Application.Lock();
         totalAmount = Application["totalAmount"].ToString();
@@ -50,7 +44,7 @@ public partial class Pages_CheckOut : System.Web.UI.Page
         }
         else
         {
-
+            lblStatus.Text = "this user is banned to shopping.";
         }
 
 
