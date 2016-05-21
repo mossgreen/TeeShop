@@ -8,13 +8,7 @@ using Microsoft.AspNet.Identity;
 
 public partial class Pages_ShoppingCart : System.Web.UI.Page
 {
-
-    public string totalAmount
-    {
-        get { return litTotalAmount.Text; }
-    }
-
-    protected void Page_Load(object sender, EventArgs e)
+   protected void Page_Load(object sender, EventArgs e)
     {
         //get id of current logged in user and display items in Cart
         string userId = User.Identity.GetUserId();
@@ -56,7 +50,6 @@ public partial class Pages_ShoppingCart : System.Web.UI.Page
         litGST.Text = "$ " + GST;
         litShippingFee.Text = "$ " + shippingFee;
         litTotalAmount.Text = "$ " + totalAmount;
-
     }
 
     private void CreateShopTable(List<Cart> purchaseList, out double subTotal)
@@ -185,19 +178,14 @@ public partial class Pages_ShoppingCart : System.Web.UI.Page
 
     protected void btnClear_Click(object sender, EventArgs e)
     {
-
-
         CartModel cartModel = new CartModel();
-
         List<Cart> carts = cartModel.GetAllCarts();
 
-        //+ id.ToString();
         foreach (Cart cart in carts)
         {
             int id = cart.ID;
             cartModel.DeleteCart(id);
         }
-
         Response.Redirect("~/Index.aspx");
     }
 
@@ -212,7 +200,7 @@ public partial class Pages_ShoppingCart : System.Web.UI.Page
             List<Cart> carts = cartModel.GetOrdersInCart(clientId);
             foreach (Cart cart in carts)
             {
-                cart.IsInCart = Convert.ToBoolean(0);
+                cart.IsInCart = false;
             }
 
             Application["totalAmount"] = litTotalAmount.Text;
