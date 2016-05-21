@@ -35,4 +35,6 @@ public partial class Pages_Management_Management : System.Web.UI.Page
         //Redirect user to ManageProducts along with the selected rowId
         Response.Redirect("~/Pages/Management/ManageOrders.aspx?id=" + rowId);
     }
+
+
 }
