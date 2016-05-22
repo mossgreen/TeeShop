@@ -28,7 +28,7 @@
                         <li>
                             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Index.aspx">Shop Home</asp:HyperLink></li>
                         <li>
-                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Pages/ContactUs.aspx">About us</asp:HyperLink></li>
+                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Pages/ContactUs.aspx">Contact Us</asp:HyperLink></li>
                         <li>
                             <asp:Menu ID="Menu1" runat="server">
                             </asp:Menu>

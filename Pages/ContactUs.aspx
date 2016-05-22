@@ -5,9 +5,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <h1 style="text-align:center; margin-top:40px;">&#9752; CONTACT US</h1>
 	<p style="text-align:center;">&#9829; Feel free to email or call us with any questions about our products or services.
-        We are in the office Monday to Friday 9am to 6pm GMT and we usually respond to every email within 1 working day.</p>
-	<p style="text-align:center;">&#9830; Email - Feifei GU@gmail.comNew Zealand, Auckland</p>
+        </p>
+<p style="text-align:center;">♥We are in the office Monday to Friday 9am to 6pm GMT.</p>
+<p style="text-align:center;">☎ we normally respond to your email within 10 working days.</p>
+	<p style="text-align:center;">&#9830; Email: <a href="mailto:somethingstragehappens@gmail.com">somethingstragehappens@gmail.com</a></p>
+<p style="text-align:center;">♦Address: New Zealand, Auckland</p>
 	<p style="text-align:center;">&#9973; UNITEC, New Zealand, Auckland</p>
-    <p style="text-align:center;">&#9742; International & New Zealand callers - 0064 21 031 8876</p>
+    <p style="text-align:center;">☎ International &amp; New Zealand callers - 0064-223-885-650</p>
     
 </asp:Content>
