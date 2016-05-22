@@ -5,6 +5,12 @@ using System.Web.UI;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
+using System.Data;
+using System.Web.Security;
+using System.Net.Mail;
+using System.Web.UI.HtmlControls;
+using System.IO;
+using System.Net;
 
 public partial class Pages_Account_Register : System.Web.UI.Page
 {
@@ -57,6 +63,8 @@ public partial class Pages_Account_Register : System.Web.UI.Page
 
                     //If succeedeed, log in the new user and set a cookie and redirect to homepage
                     authenticationManager.SignIn(new AuthenticationProperties(), userIdentity);
+                    SendMail(client.UserName, client.Email);
+
                     Response.Redirect("~/Index.aspx");
                 }
                 else
@@ -81,6 +89,30 @@ public partial class Pages_Account_Register : System.Web.UI.Page
         Session["ExceptionObject"] = ex;
         //Server.ClearError();
         //Server.Transfer("~/Pages/DisplayErrors.aspx?from=RegistrationPage");
+    }
+
+    public void SendMail(string name, string email)
+    {
+        MailAddress toAddress = new MailAddress(email);
+        MailAddress fromAddress = new MailAddress("unfeifei@gmail.com");
+        MailMessage message = new MailMessage(fromAddress, toAddress);
+        message.Subject = "Welcome letter from QTee, Q fro quality!";
+        message.Body = string.Format("Hi,{0}, welcome to join QTee", name);
+        SmtpClient mailClient = new SmtpClient();
+        try
+        {
+            mailClient.Host = "localhost";
+            mailClient.Send(message);
+        }
+        catch (SmtpException smtpEx)
+        {
+            Response.Write("Email is not sent due to system error: " + smtpEx.Message);
+        }
+        catch (Exception ex)
+        {
+            Response.Write("Error: " + ex.ToString());
+        }
+
     }
 
 
