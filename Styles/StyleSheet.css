@@ -178,3 +178,12 @@
 {
     width: 100px;
 }
+
+
+#footer
+{
+    width: 1100px;
+    height:40px;
+    position: relative;
+    margin:0 auto;
+}

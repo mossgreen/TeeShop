@@ -5,14 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="d0599a4a7f22494cbb29e499c64e0b89" Name="Diagram1">
-        <EntityTypeShape EntityType="TeeShopModel.Cart" Width="1.5" PointX="5.25" PointY="1" />
-        <EntityTypeShape EntityType="TeeShopModel.Product" Width="1.5" PointX="3" PointY="0.875" />
-        <EntityTypeShape EntityType="TeeShopModel.ProductType" Width="1.5" PointX="0.75" PointY="1.375" />
+        <EntityTypeShape EntityType="TeeShopModel.Cart" Width="1.5" PointX="5" PointY="3.625" />
+        <EntityTypeShape EntityType="TeeShopModel.Order" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TeeShopModel.Product" Width="1.5" PointX="2.75" PointY="3.625" />
+        <EntityTypeShape EntityType="TeeShopModel.ProductType" Width="1.5" PointX="0.5" PointY="4" />
+        <EntityTypeShape EntityType="TeeShopModel.Supplier" Width="1.5" PointX="2.75" PointY="0.75" />
         <AssociationConnector Association="TeeShopModel.FK_Cart_Product" />
         <AssociationConnector Association="TeeShopModel.FK_Product_ProductTypes" />
-        <EntityTypeShape EntityType="TeeShopModel.Order" Width="1.5" PointX="3.25" PointY="3.875" />
-        <EntityTypeShape EntityType="TeeShopModel.Client" Width="1.5" PointX="5.25" PointY="4" />
-        <EntityTypeShape EntityType="TeeShopModel.Supplier" Width="1.5" PointX="1.25" PointY="4.125" />
+        <EntityTypeShape EntityType="TeeShopModel.Client" Width="1.5" PointX="4.625" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

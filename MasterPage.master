@@ -56,6 +56,12 @@
                 </div>
             </div>
         </div>
+
+                <!-- Footer -->
+        <div id="footer">
+            <div id="copyright">&copy; Feifei GU</div>
+
+        </div>
     </form>
 </body>
 </html>
