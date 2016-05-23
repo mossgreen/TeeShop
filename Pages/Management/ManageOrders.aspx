@@ -12,7 +12,7 @@
         Status:</p>
     <p>
         <asp:DropDownList ID="ddlStatus" runat="server" CssClass="buttons">
-            <asp:ListItem Value="false">Pendding</asp:ListItem>
+            <asp:ListItem Value="false">Pending</asp:ListItem>
             <asp:ListItem Value="true">Delivered</asp:ListItem>
         </asp:DropDownList>
     </p>
