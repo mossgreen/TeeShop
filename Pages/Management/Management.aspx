@@ -136,8 +136,8 @@
             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
             <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
             <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
-            <asp:BoundField DataField="PhoneNumber" HeaderText="PhoneNumber" SortExpression="PhoneNumber" />
             <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+            <asp:BoundField DataField="PhoneNumber" HeaderText="PhoneNumber" SortExpression="PhoneNumber" />
             <asp:BoundField DataField="PhoneType" HeaderText="PhoneType" SortExpression="PhoneType" />
             <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
             <asp:BoundField DataField="IsActive" HeaderText="IsActive" SortExpression="IsActive" />
@@ -152,22 +152,22 @@
         <SortedDescendingCellStyle BackColor="#EAEAD3" />
         <SortedDescendingHeaderStyle BackColor="#575357" />
     </asp:GridView>
-    <asp:SqlDataSource ID="sdsClients" runat="server" ConnectionString="<%$ ConnectionStrings:TeeShopConnectionString %>" DeleteCommand="DELETE FROM [Client] WHERE [ID] = @ID" InsertCommand="INSERT INTO [Client] ([UserName], [PhoneNumber], [Email], [PhoneType], [Address], [IsActive]) VALUES (@UserName, @PhoneNumber, @Email, @PhoneType, @Address, @IsActive)" SelectCommand="SELECT [ID], [UserName], [PhoneNumber], [Email], [PhoneType], [Address], [IsActive] FROM [Client] ORDER BY [ID]" UpdateCommand="UPDATE [Client] SET [UserName] = @UserName, [PhoneNumber] = @PhoneNumber, [Email] = @Email, [PhoneType] = @PhoneType, [Address] = @Address, [IsActive] = @IsActive WHERE [ID] = @ID">
+    <asp:SqlDataSource ID="sdsClients" runat="server" ConnectionString="<%$ ConnectionStrings:GUF03sqlserver1ConnectionString %>" DeleteCommand="DELETE FROM [Client] WHERE [ID] = @ID" InsertCommand="INSERT INTO [Client] ([UserName], [Email], [PhoneNumber], [PhoneType], [Address], [IsActive]) VALUES (@UserName, @Email, @PhoneNumber, @PhoneType, @Address, @IsActive)" SelectCommand="SELECT [ID], [UserName], [Email], [PhoneNumber], [PhoneType], [Address], [IsActive] FROM [Client]" UpdateCommand="UPDATE [Client] SET [UserName] = @UserName, [Email] = @Email, [PhoneNumber] = @PhoneNumber, [PhoneType] = @PhoneType, [Address] = @Address, [IsActive] = @IsActive WHERE [ID] = @ID">
         <DeleteParameters>
             <asp:Parameter Name="ID" Type="Int32" />
         </DeleteParameters>
         <InsertParameters>
             <asp:Parameter Name="UserName" Type="String" />
-            <asp:Parameter Name="PhoneNumber" Type="String" />
             <asp:Parameter Name="Email" Type="String" />
+            <asp:Parameter Name="PhoneNumber" Type="String" />
             <asp:Parameter Name="PhoneType" Type="String" />
             <asp:Parameter Name="Address" Type="String" />
             <asp:Parameter Name="IsActive" Type="Int32" />
         </InsertParameters>
         <UpdateParameters>
             <asp:Parameter Name="UserName" Type="String" />
-            <asp:Parameter Name="PhoneNumber" Type="String" />
             <asp:Parameter Name="Email" Type="String" />
+            <asp:Parameter Name="PhoneNumber" Type="String" />
             <asp:Parameter Name="PhoneType" Type="String" />
             <asp:Parameter Name="Address" Type="String" />
             <asp:Parameter Name="IsActive" Type="Int32" />
