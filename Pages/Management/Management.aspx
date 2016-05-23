@@ -201,7 +201,7 @@
         <SortedDescendingCellStyle BackColor="#EAEAD3" />
         <SortedDescendingHeaderStyle BackColor="#575357" />
     </asp:GridView>
-    <asp:SqlDataSource ID="sdsSuppliers" runat="server" ConnectionString="<%$ ConnectionStrings:TeeShopConnectionString %>" SelectCommand="SELECT * FROM [Supplier] ORDER BY [Id]" DeleteCommand="DELETE FROM [Supplier] WHERE [Id] = @Id" InsertCommand="INSERT INTO [Supplier] ([ProductName], [Name], [PhoneNumber], [Email]) VALUES (@ProductName, @Name, @PhoneNumber, @Email)" UpdateCommand="UPDATE [Supplier] SET [ProductName] = @ProductName, [Name] = @Name, [PhoneNumber] = @PhoneNumber, [Email] = @Email WHERE [Id] = @Id">
+    <asp:SqlDataSource ID="sdsSuppliers" runat="server" ConnectionString="<%$ ConnectionStrings:GUF03sqlserver1ConnectionString %>" SelectCommand="SELECT * FROM [Supplier]" DeleteCommand="DELETE FROM [Supplier] WHERE [Id] = @Id" InsertCommand="INSERT INTO [Supplier] ([ProductName], [Name], [PhoneNumber], [Email]) VALUES (@ProductName, @Name, @PhoneNumber, @Email)" UpdateCommand="UPDATE [Supplier] SET [ProductName] = @ProductName, [Name] = @Name, [PhoneNumber] = @PhoneNumber, [Email] = @Email WHERE [Id] = @Id">
         <DeleteParameters>
             <asp:Parameter Name="Id" Type="Int32" />
         </DeleteParameters>

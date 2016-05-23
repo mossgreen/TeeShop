@@ -38,7 +38,7 @@ public partial class Pages_Management_ManageOrders : System.Web.UI.Page
         OrderModel orderModel = new OrderModel();
         Boolean selected = Convert.ToBoolean(ddlStatus.SelectedValue);
 
-      
+
         lblResult.Text = orderModel.ChangeOrderStatus(ID, selected);
     }
 
