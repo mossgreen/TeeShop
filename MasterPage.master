@@ -16,17 +16,23 @@
             <div id="wrapper">
                 <div id="banner">
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/Banner.png" Width="100%" />
-                    
-                
+
+
                 </div>
                 <div id="navigation">
                     <ul id="nav">
                         <li>
-                            <asp:ImageButton ID="ImgLogo" cssClass="ImgLogo" runat ="server" ImageUrl="~/Images/logo.png" PostBackUrl="~/Index.aspx"  Width="70px" ImageAlign="Baseline" />
-                           
+                            <asp:ImageButton ID="ImgLogo" CssClass="ImgLogo" runat="server" ImageUrl="~/Images/logo.png" PostBackUrl="~/Index.aspx" Width="70px" ImageAlign="Baseline" />
+
                         </li>
                         <li>
                             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Index.aspx">Shop Home</asp:HyperLink></li>
+                        <li>
+                            <asp:DropDownList ID="ddlCategory" runat="server" AutoPostBack="True" DataSourceID="sdsCategories" DataTextField="Name" DataValueField="Name">
+                                <asp:ListItem Value="0">Selecte Category</asp:ListItem>
+                            </asp:DropDownList>
+                            <asp:SqlDataSource ID="sdsCategories" runat="server" ConnectionString="<%$ ConnectionStrings:GUF03sqlserver1ConnectionString %>" SelectCommand="SELECT [Name] FROM [ProductType] ORDER BY [Name]"></asp:SqlDataSource>
+                        </li>
                         <li>
                             <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Pages/ContactUs.aspx">Contact Us</asp:HyperLink></li>
                         <li>
@@ -57,11 +63,8 @@
             </div>
         </div>
 
-                <!-- Footer -->
+        <!-- Footer -->
         <div id="footer">
-            <div id="copyright">&copy; Feifei GU</div>
-
-        </div>
-    </form>
+            <div id="copyright">&copy; Feifei GU</form>
 </body>
 </html>
